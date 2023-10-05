@@ -1,6 +1,6 @@
-# Nodo simplemente enlazado
 class nodoListaSimple(object):
-    info, siguiente = None, None
+    Alumno = None
+    siguiente = None
 
 
 class Lista(object):
@@ -8,9 +8,10 @@ class Lista(object):
         self.inicio = None
         self.tamanio = 0
 
-def insertar(lista, info):
+
+def insertar(lista, alumno):
     nodo = nodoListaSimple()
-    nodo.info = info
+    nodo.alumno = alumno
     if lista.inicio is None:
         nodo.siguiente = lista.inicio
         lista.inicio = nodo
@@ -24,41 +25,44 @@ def insertar(lista, info):
         actual.siguiente = nodo
     lista.tamanio += 1
 
+
 def imprimir(lista):
     actual = lista.inicio
     while actual is not None:
-        print(actual.info)
+        print(actual.alumno)
         actual = actual.siguiente
+
 
 def tamanio(lista):
     return lista.tamanio
 
-def eliminar(lista, info):
+
+def eliminar(lista, alumno):
     data = None
     # saber si es el primero de la lista
-    if(lista.inicio.info == info):
+    if(lista.inicio.alumno == alumno):
         data = lista.incio
         lista.inicio = lista.inicio.siguiente
         lista.tamanio -= 1
     else:      
         actual = lista.inicio
         siguiente = lista.inicio.siguiente
-        while (siguiente is not None and info != siguiente.info):
+        while (siguiente is not None and alumno != siguiente.alumno):
             actual = actual.siguiente
             siguiente = siguiente.siguiente
         # saber si es el ultimo de la lista
         if(siguiente is not None):
-            data = siguiente.info
+            data = siguiente.alumno
             actual.siguiente = siguiente.siguiente
             lista.tamanio -= 1
     return data
 
 
-def return_index(lista, info):
+def return_index(lista, alumno):
     actual = lista.inicio
     contador = 0
 
-    while actual.info != info:
+    while actual.alumno != alumno:
         actual = actual.siguiente
         contador += 1
         if actual == None:
@@ -76,4 +80,4 @@ def index(lista, index):
         if actual == None:
             return None
 
-    return actual.info
+    return actual.alumno
