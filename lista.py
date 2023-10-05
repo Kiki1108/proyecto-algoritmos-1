@@ -33,6 +33,14 @@ def imprimir(lista):
         actual = actual.siguiente
 
 
+def imprimir_info(lista):
+    actual = lista.inicio
+    while actual is not None:
+        print(actual.alumno.nombre)
+        print(actual.alumno.promedio)
+        actual = actual.siguiente
+
+
 def tamanio(lista):
     return lista.tamanio
 

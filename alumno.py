@@ -1,9 +1,9 @@
 
 class Alumno():
-    def __init__(self):
-        self.nombre = None
-        self.cantidad_notas = 0
-        self.promedio = 0
+    def __init__(self, nombre, nota):
+        self.nombre = nombre
+        self.cantidad_notas = 1
+        self.promedio = nota
 
     def add_nota(self, nota):
         ponderado = self.promedio * self.cantidad_notas
