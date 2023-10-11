@@ -56,9 +56,6 @@ def insert_nota_indice(lista):
     cambiar_nota(lista= lista, indice=indice, nombre=None, nota=nota)
     
 
-
-
-
 if __name__ == "__main__":
     lista = Lista()
 

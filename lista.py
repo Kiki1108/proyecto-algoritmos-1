@@ -89,3 +89,7 @@ def index(lista, index):
             return None
 
     return actual.alumno
+
+
+def cambiar_nota(lista, indice, nombre, nota):
+    print("UWU")
