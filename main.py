@@ -5,7 +5,7 @@ from alumno import Alumno
 import random
 import json
 
-with open("texto.json") as archivo:
+with open("texto.json", encoding="uft8") as archivo:
     datos_nombres = json.load(archivo)
 
 nombres = datos_nombres["nombres"]
@@ -30,9 +30,33 @@ def insertar_alumno(lista):
         except:
             pass
 
-
     alumno = Alumno(nombre, promedio)
     insertar(lista, alumno)
+
+
+def insert_nota_indice(lista):
+    while True:
+        indice = input("Indice: ")
+        try:
+            indice = int(indice)
+            if indice >= 0 and indice < tamanio(lista):
+                break
+        except:
+            pass
+    
+    while True:
+        nota = input("nota: ")
+        try:
+            nota = int(nota)
+            if nota >= 10 and nota <= 70:
+                break
+        except:
+            pass
+
+    cambiar_nota(lista= lista, indice=indice, nombre=None, nota=nota)
+    
+
+
 
 
 if __name__ == "__main__":
@@ -56,7 +80,7 @@ if __name__ == "__main__":
 
         match opcion:
             case "1" : insertar_alumno(lista)
-            case "2" : "uwu"
+            case "2" : insert_nota_indice(lista)
 
             case "9" : imprimir_info(lista)
             case _ : break
