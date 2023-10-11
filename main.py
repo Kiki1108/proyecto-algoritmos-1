@@ -19,6 +19,22 @@ def crear_alumno():
     return alumno
 
 
+def insertar_alumno(lista):
+    nombre = input("Nombre: ")
+    while True:
+        promedio = input("Promedio: ")
+        try:
+            promedio = int(promedio)
+            if promedio >= 10 and promedio <= 70:
+                break
+        except:
+            pass
+
+
+    alumno = Alumno(nombre, promedio)
+    insertar(lista, alumno)
+
+
 if __name__ == "__main__":
     lista = Lista()
 
@@ -26,5 +42,23 @@ if __name__ == "__main__":
         alumno = crear_alumno()
         insertar(lista, alumno)
     
-    imprimir_info(lista)
+    while True:
+        print("1: Insertar alumno")
+        print("2: Insertar nota a indice")
+        print("3: Insertar nota a nombre")
+        print("4: Agregar nota a todos (nota random a todos)")
+
+
+        print("9: Imprimir a todos")
+        print("0: Salir")
+
+        opcion = input()
+
+        match opcion:
+            case "1" : insertar_alumno(lista)
+            case "2" : "uwu"
+
+            case "9" : imprimir_info(lista)
+            case _ : break
+
 
