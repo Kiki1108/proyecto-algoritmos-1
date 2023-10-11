@@ -1,8 +1,8 @@
-Eliminar por indice
-Eliminar por nombre /apellido
+[listo] Eliminar por indice
+[listo] Eliminar por nombre /apellido
 
-agregar notas
-Eliminar notas
+[listo] agregar notas
+[listo] Eliminar notas
 
 agregar notas random (hacer prueba)
 

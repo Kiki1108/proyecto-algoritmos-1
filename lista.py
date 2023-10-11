@@ -1,3 +1,4 @@
+import random
 class nodoListaSimple(object):
     Alumno = None
     siguiente = None
@@ -83,13 +84,76 @@ def index(lista, index):
     actual = lista.inicio
 
     for i in range(index):
-        actual = actual.siguiente
-
         if actual == None:
             return None
-
+        
+        actual = actual.siguiente
+        #Se cambió esto:
+        """
+        actual = actual.siguiente
+        if actual == None:
+            return None
+        """
     return actual.alumno
 
 
 def cambiar_nota(lista, indice, nombre, nota):
-    print("UWU")
+    if nombre == None:
+        actual = lista.inicio
+        for i in range(indice):
+            actual = actual.siguiente
+
+    elif indice == None:
+        actual = lista.inicio
+        for i in range(tamanio(lista)):
+            if actual.alumno.nombre == nombre:
+                break
+            actual = actual.siguiente
+    
+    print("-"*30)
+    print("Nombre: ", actual.alumno.nombre)
+    print("Promedio anterior: ", actual.alumno.promedio)
+    actual.alumno.add_nota(nota)
+    print("Promedio actual: ", actual.alumno.promedio)
+    print("-"*30)
+
+
+def existe_alumno(lista, nombre):
+    actual = lista.inicio
+    for i in range(tamanio(lista)):
+        if actual == None:
+            print("no existe")
+            return False
+        elif actual.alumno.nombre == nombre:
+            print("existe")
+            return True
+        actual = actual.siguiente
+
+
+def add_nota_random(lista):
+    actual = lista.inicio
+    for i in range(tamanio(lista)):
+        nota = random.randint(10, 70)
+        actual.alumno.add_nota(nota)
+        actual = actual.siguiente
+
+
+def eliminar_alumno(lista, nombre, indice):
+    if nombre == None:
+        actual = lista.inicio
+        for i in range(indice):
+            actual = actual.siguiente
+
+    if indice == None:
+        actual = lista.inicio
+        for i in range(tamanio(lista)):
+            if actual.alumno.nombre == nombre:
+                break
+            actual = actual.siguiente
+    
+    eliminar(lista, actual.alumno)
+    print("-"*30)
+    print("Eliminado: ", actual.alumno.nombre, actual.alumno.promedio)
+    print("-"*30)
+
+
