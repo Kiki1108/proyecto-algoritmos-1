@@ -1,0 +1,13 @@
+ MISIONES A RESOLVER:
+
+Crear una lista de 1000 elementos:
+    Recordar que elemento puede ser una persona, auto, pokemon musica o lo que quieran trabaja, solo debe tener atributos que permitan las implementaciones necesarias.
+Crear funciones para operar la lista según criterios de sus elementos
+    Las funciones deben operar sobre los atributos, por ejemplo si escogieron una persona, búsqueda por nombre, o por rut o por. ejemplo música búsqueda por artista, por nombre de canción y así. Pokemones por tipo, nombre, numero de pokedex etc.
+De la lista obtener 100 elementos y simular el tiempo de atención de la cola con prioridad. Se asume que el tiempo de atención de un elemento es constante.
+    La idea es que estos elementos sacados de la lista sean ingresados a una cola de atención según el proceso que escojan.
+Sacar 300 elementos al azar de la lista y crear un árbol binario
+    se debe sacar 300 elementos. tips: escoger criterio de confección del árbol el mismo que después utilizaremos por la búsqueda. ejemplo: nombre alfabético.(deben ser al azar dado, que si escogemos los elementos de la lista ordenados el árbol binario presenta el peor de los casos según visto en clases )
+Comparar tiempos de ejecución empírica al  ejecutar una búsqueda dentro de la lista vs el tiempo de buscarlo en el árbol.
+    Buscar por ejemplo la persona de nombre X, en la lista y tomar el tiempo, y luego el mismo elemento en el árbol. Obvio que pueden variar los tiempos por ende registrar.
+Sorprender al profe con la implementación de una Pila o Grafo aplicado al tipo de datos de elementos.
