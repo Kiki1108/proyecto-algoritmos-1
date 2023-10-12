@@ -93,24 +93,25 @@ def eliminar_nombre(lista):
             break
     eliminar_alumno(lista=lista, nombre=nombre, indice=None)
 
-def aleatorio(lista):
-    lista_aleatorio = []
-    while len(lista_aleatorio) != 100:
-        var = random.randint(0,tamanio(lista))
-        if var in lista_aleatorio:
-            continue
-        else:
-            lista_aleatorio.append(var)
-    return lista_aleatorio
 
-        
-def cola_prioridad(cola, alumno):
-    lista_aleatorio = aleatorio(lista)
-    for i in range(100):
-        ayuda = lista_aleatorio[i]
-        alumno = index(lista, ayuda)
-        arribo(cola, alumno.nombre, alumno.promedio)
+def cola_prioridad(lista, cola, alumno):
+    contador = 0
+    while contador < 100:
+        num = random.randint(0, tamanio(lista)-1)
+        alumno = index(lista, num)
+        if not existe_alumno_en_cola(cola, alumno):
+            arribo(cola, alumno.nombre, alumno.promedio)
+            contador += 1
     return cola
+
+
+def arbol(lista, arbol):
+    contador = 0
+    while contador < 300:
+        num = random.randint(0, tamanio(lista)-1)
+        alumno = index(lista)
+
+
 
 def espera_index():
     while True:
@@ -123,10 +124,12 @@ def espera_index():
         except:
             continue
 
+
 def nombre_busqueda():
     print("Ingrese el nombre y apellido, con las mayúsculas y tildes correspondientes.")
     busqueda = input()
     return busqueda.strip()
+
 
 if __name__ == "__main__":
     lista = Lista()
@@ -138,24 +141,19 @@ if __name__ == "__main__":
         insertar(lista, alumno)
     
     while True:
-        print("1: Insertar alumno")
-        print("2: Insertar nota a indice")
-        print("3: Insertar nota a nombre")
-        print("4: Agregar nota a todos (nota random a todos)")
-        print("5: Eliminar alumno por indice")
-        print("6: Eliminar alumno por nombre")
-        print("7: Eliminar nota a indice")
-        print("8: Eliminar nota a nombre")
-        print("9: Formar la cola con prioridad")
-        print("10: Tiempo de espera por índice")
-        print("11: Tiempo de espera por nombre")
-        print("12: imprimir cola")
-
-
-        print("13: Imprimir a todos")
-        print("0: Salir")
+        print("1: Insertar alumno                               2: Insertar nota a indice")
+        print("3: Insertar nota a nombre                        4: Agregar nota a todos (nota random a todos")
+        print("5: Eliminar alumno por indice                    6: Eliminar alumno por nombre")
+        print("7: Eliminar nota a indice                        8: Eliminar nota a nombre")
+        print("9: Formar la cola con prioridad                  10: Tiempo de espera por índice")
+        print("11: Tiempo de espera por nombre                  12: imprimir cola")
+        print("13: Imprimir a todos                             14: Imprimir media del promedio")
+        print("15: Generar arbol binario                        16: Buscar por nombre")
+        print("\n0: Salir")
 
         opcion = input()
+
+        print("-"*30)
 
         match opcion:
             case "1" : insertar_alumno(lista)
@@ -166,12 +164,16 @@ if __name__ == "__main__":
             case "6" : eliminar_nombre(lista)
             case "7" : eliminar_nota_indice(lista)
             case "8" : eliminar_nota_nombre(lista)
-            case "9" : cola_prioridad(cola, alumno)
+            case "9" : cola_prioridad(lista, cola)
             case "10" : atencion_index(cola, espera_index())
             case "11" : atencion_nombre(cola, nombre_busqueda())
             case "12" : imprimir(cola)
-
             case "13" : imprimir_info(lista)
+            case "14" : 
+                print("-"*30)
+                print("Media de los promedios: ", media_promedios(lista))
+                print("-"*30)
+            case "15" : 
             case _ : break
 
 

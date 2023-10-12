@@ -8,6 +8,7 @@ class Lista(object):
     def __init__(self):
         self.inicio = None
         self.tamanio = 0
+        self.promedio = 0
 
 
 def insertar(lista, alumno):
@@ -24,7 +25,11 @@ def insertar(lista, alumno):
             siguiente = siguiente.siguiente
         nodo.siguiente = siguiente
         actual.siguiente = nodo
+
+    suma = lista.promedio * lista.tamanio
+    suma = suma + alumno.promedio
     lista.tamanio += 1
+    lista.promedio = suma / (lista.tamanio)
 
 
 def imprimir(lista):
@@ -46,12 +51,17 @@ def tamanio(lista):
     return lista.tamanio
 
 
+def media_promedios(lista):
+    return int(lista.promedio)
+
+
 def eliminar(lista, alumno):
     data = None
     # saber si es el primero de la lista
     if(lista.inicio.alumno == alumno):
         data = lista.incio
         lista.inicio = lista.inicio.siguiente
+        lista.promedio = (lista.promedio * lista.tamanio - alumno.promedio) / (lista.tamanio -1)
         lista.tamanio -= 1
     else:      
         actual = lista.inicio
@@ -63,6 +73,7 @@ def eliminar(lista, alumno):
         if(siguiente is not None):
             data = siguiente.alumno
             actual.siguiente = siguiente.siguiente
+            lista.promedio = (lista.promedio * lista.tamanio - alumno.promedio) / (lista.tamanio -1)
             lista.tamanio -= 1
     return data
 
@@ -86,14 +97,8 @@ def index(lista, index):
     for i in range(index):
         if actual == None:
             return None
-        
         actual = actual.siguiente
-        #Se cambió esto:
-        """
-        actual = actual.siguiente
-        if actual == None:
-            return None
-        """
+
     return actual.alumno
 
 

@@ -103,3 +103,20 @@ def atencion_nombre(cola, busqueda):
         print(f"Se encuentra en el puesto {contador}, tiene un tiempo de espera de {t_espera} minutos.")
     else:
         print("No se encontraron coincidencias.")
+
+
+def existe_alumno_en_cola(cola, alumno):
+    colaAuxiliar = Cola()
+    existe = False
+    while not esVacia(cola):
+        actual = atencion(cola)
+        arribo(colaAuxiliar, actual.info, actual.prioridad)
+        if alumno.nombre == actual.info and alumno.promedio == actual.prioridad:
+            existe = True
+
+    while not esVacia(colaAuxiliar):
+        actual = atencion(colaAuxiliar)
+        arribo(cola, actual.info, actual.prioridad)
+        
+    return existe
+
