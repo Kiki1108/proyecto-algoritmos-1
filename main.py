@@ -1,6 +1,7 @@
 from lista import *
 from alumno import Alumno
 from cola import *
+from arbol import *
 
 import random
 import json
@@ -94,7 +95,7 @@ def eliminar_nombre(lista):
     eliminar_alumno(lista=lista, nombre=nombre, indice=None)
 
 
-def cola_prioridad(lista, cola, alumno):
+def cola_prioridad(lista, cola):
     contador = 0
     while contador < 100:
         num = random.randint(0, tamanio(lista)-1)
@@ -105,11 +106,15 @@ def cola_prioridad(lista, cola, alumno):
     return cola
 
 
-def arbol(lista, arbol):
+def generar_arbol(lista, arbol):
     contador = 0
     while contador < 300:
         num = random.randint(0, tamanio(lista)-1)
-        alumno = index(lista)
+        alumno = index(lista, num)
+        if not existe_alumno_en_arbol(arbol, alumno):
+            insertarNodo(arbol, alumno)
+            contador += 1
+    return arbol
 
 
 
@@ -134,7 +139,7 @@ def nombre_busqueda():
 if __name__ == "__main__":
     lista = Lista()
     cola = Cola()
-
+    arbol = None
 
     for i in range(1000):
         alumno = crear_alumno()
@@ -173,7 +178,8 @@ if __name__ == "__main__":
                 print("-"*30)
                 print("Media de los promedios: ", media_promedios(lista))
                 print("-"*30)
-            case "15" : 
+            case "15" : arbol = generar_arbol(lista, arbol)
+            case "17" : imprimir(arbol)
             case _ : break
 
 

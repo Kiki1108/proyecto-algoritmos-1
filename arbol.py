@@ -85,3 +85,15 @@ def imprimirPostOrden(raiz):
         print(raiz.info)
         imprimirPostOrden(raiz.der)
         imprimirPostOrden(raiz.izq)
+
+
+def existe_alumno_en_arbol(raiz, alumno):
+    existe = False
+    if(raiz is not None):
+        if raiz.info.nombre == alumno.nombre:
+            return True
+        if not existe:
+            existe = existe_alumno_en_arbol(raiz.izq, alumno)
+        if not existe:
+            existe = existe_alumno_en_arbol(raiz.der, alumno)
+    return existe
