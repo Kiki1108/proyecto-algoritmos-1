@@ -119,21 +119,26 @@ def generar_arbol(lista, arbol):
 
 
 def espera_index():
-    while True:
-        print("Ingrese un valor entero:")
-        index = input()
-        try:
-            temp = int(eval(str(index)))
-            if type(temp) == int:
-                return temp
-        except:
-            continue
-
+    if not esVacia(cola):
+        while True:
+            print("Ingrese un valor entero:")
+            index = input()
+            try:
+                temp = int(eval(str(index)))
+                if type(temp) == int:
+                    return temp
+            except:
+                continue
+    else:
+        print("La cola está vacía.")
 
 def nombre_busqueda():
-    print("Ingrese el nombre y apellido, con las mayúsculas y tildes correspondientes.")
-    busqueda = input()
-    return busqueda.strip()
+    if not esVacia(cola):
+        print("Ingrese el nombre y apellido, con las mayúsculas y tildes correspondientes.")
+        busqueda = input()
+        return busqueda.strip()
+    else:
+        print("La cola está vacía.")
 
 
 if __name__ == "__main__":
