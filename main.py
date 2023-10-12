@@ -1,6 +1,6 @@
 from lista import *
 from alumno import Alumno
-#from cola import *
+from cola import *
 
 import random
 import json
@@ -92,10 +92,45 @@ def eliminar_nombre(lista):
         if existe_alumno(lista, nombre):
             break
     eliminar_alumno(lista=lista, nombre=nombre, indice=None)
-    
+
+def aleatorio(lista):
+    lista_aleatorio = []
+    while len(lista_aleatorio) != 100:
+        var = random.randint(0,tamanio(lista))
+        if var in lista_aleatorio:
+            continue
+        else:
+            lista_aleatorio.append(var)
+    return lista_aleatorio
+
+        
+def cola_prioridad(cola, alumno):
+    lista_aleatorio = aleatorio(lista)
+    for i in range(100):
+        ayuda = lista_aleatorio[i]
+        alumno = index(lista, ayuda)
+        arribo(cola, alumno.nombre, alumno.promedio)
+    return cola
+
+def espera_index():
+    while True:
+        print("Ingrese un valor entero:")
+        index = input()
+        try:
+            temp = int(eval(str(index)))
+            if type(temp) == int:
+                return temp
+        except:
+            continue
+
+def nombre_busqueda():
+    busqueda = input()
+    return busqueda.strip()
 
 if __name__ == "__main__":
     lista = Lista()
+    cola = Cola()
+
 
     for i in range(1000):
         alumno = crear_alumno()
@@ -110,9 +145,13 @@ if __name__ == "__main__":
         print("6: Eliminar alumno por nombre")
         print("7: Eliminar nota a indice")
         print("8: Eliminar nota a nombre")
+        print("9: Formar la cola con prioridad")
+        print("10: Tiempo de espera por índice")
+        print("11: Tiempo de espera por nombre")
+        print("12: imprimir cola")
 
 
-        print("9: Imprimir a todos")
+        print("13: Imprimir a todos")
         print("0: Salir")
 
         opcion = input()
@@ -126,8 +165,12 @@ if __name__ == "__main__":
             case "6" : eliminar_nombre(lista)
             case "7" : eliminar_nota_indice(lista)
             case "8" : eliminar_nota_nombre(lista)
+            case "9" : cola_prioridad(cola, alumno)
+            case "10" : atencion_index(cola, espera_index())
+            case "11" : atencion_nombre(cola, nombre_busqueda())
+            case "12" : imprimir(cola)
 
-            case "9" : imprimir_info(lista)
+            case "13" : imprimir_info(lista)
             case _ : break
 
 
