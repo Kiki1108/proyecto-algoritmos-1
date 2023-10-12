@@ -40,34 +40,46 @@ def esVacia(cola):
     return cola.entrada is None
 
 def imprimir(cola):
-    colaAuxiliar = Cola()
-    while not esVacia(cola):
-        info = atencion(cola)
-        print(info.info, info.prioridad)
-        arribo(colaAuxiliar, info.info, info.prioridad)
+    if not esVacia(cola):
+        colaAuxiliar = Cola()
+        while not esVacia(cola):
+            info = atencion(cola)
+            print(info.info, info.prioridad)
+            arribo(colaAuxiliar, info.info, info.prioridad)
 
-    while not esVacia(colaAuxiliar):
-        info = atencion(colaAuxiliar)
-        arribo(cola, info.info, info.prioridad)
+        while not esVacia(colaAuxiliar):
+            info = atencion(colaAuxiliar)
+            arribo(cola, info.info, info.prioridad)
+    else:
+        print("La cola está vacía.")
 
 
 def atencion_index(cola, busqueda):
-    colaAuxiliar = Cola()
-    contador = 1
-    t_espera = 0
-    help = False
-    while not esVacia(cola):
-        info = atencion(cola)
-        if contador != busqueda:
-            if help is False:
-                contador += 1
-                if info.prioridad < 40:
-                    t_espera += 10
-                else:
-                    t_espera += 5
+    if not esVacia(cola):
+        colaAuxiliar = Cola()
+        contador = 1
+        t_espera = 0
+        help = False
+        while not esVacia(cola):
+            info = atencion(cola)
+            if contador != busqueda:
+                if help is False:
+                    contador += 1
+                    if info.prioridad < 40:
+                        t_espera += 10
+                    else:
+                        t_espera += 5
+            else:
+                help = True
+            arribo(colaAuxiliar, info.info, info.prioridad)
+
+        while not esVacia(colaAuxiliar):
+            info = atencion(colaAuxiliar)
+            arribo(cola, info.info, info.prioridad)
+        if help is True:
+            print(f"La persona del puesto {contador}, tiene un tiempo de espera de {t_espera} minutos.")
         else:
-            help = True
-        arribo(colaAuxiliar, info.info, info.prioridad)
+            print("No se encontraron coincidencias.")
 
     while not esVacia(colaAuxiliar):
         info = atencion(colaAuxiliar)
@@ -78,31 +90,32 @@ def atencion_index(cola, busqueda):
         print("No se encontraron coincidencias.")
 
 def atencion_nombre(cola, busqueda):
-    colaAuxiliar = Cola()
-    contador = 1
-    t_espera = 0
-    help = False
-    while not esVacia(cola):
-        info = atencion(cola)
-        if info.info != busqueda:
-            if help is False:
-                contador += 1
-                if info.prioridad < 40:
-                    t_espera += 10
-                else:
-                    t_espera += 5
-        else:
-            help = True
-        arribo(colaAuxiliar, info.info, info.prioridad)
+    if not esVacia(cola):
+        colaAuxiliar = Cola()
+        contador = 1
+        t_espera = 0
+        help = False
+        while not esVacia(cola):
+            info = atencion(cola)
+            if info.info != busqueda:
+                if help is False:
+                    contador += 1
+                    if info.prioridad < 40:
+                        t_espera += 10
+                    else:
+                        t_espera += 5
+            else:
+                help = True
+            arribo(colaAuxiliar, info.info, info.prioridad)
 
-    while not esVacia(colaAuxiliar):
-        info = atencion(colaAuxiliar)
-        arribo(cola, info.info, info.prioridad)
-    
-    if help is True:
-        print(f"Se encuentra en el puesto {contador}, tiene un tiempo de espera de {t_espera} minutos.")
-    else:
-        print("No se encontraron coincidencias.")
+        while not esVacia(colaAuxiliar):
+            info = atencion(colaAuxiliar)
+            arribo(cola, info.info, info.prioridad)
+        
+        if help is True:
+            print(f"Se encuentra en el puesto {contador}, tiene un tiempo de espera de {t_espera} minutos.")
+        else:
+            print("No se encontraron coincidencias.")
 
 
 def existe_alumno_en_cola(cola, alumno):
