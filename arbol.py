@@ -9,7 +9,7 @@ class nodoArbol(object):
 def insertarNodo(raiz, info):
     if(raiz is None):
         raiz = nodoArbol(info)
-    elif(info < raiz.info):
+    elif(info.nombre < raiz.info.nombre):
         raiz.izq = insertarNodo(raiz.izq,info)
     else:
         raiz.der = insertarNodo(raiz.der,info)
@@ -76,13 +76,14 @@ def imprimirInOrden(raiz):
 
 def imprimirPreOrden(raiz):
     if(raiz is not None):
-        print(raiz.info)
+        print(raiz.info.nombre)
+        print(raiz.info.promedio)
         imprimirPreOrden(raiz.izq)
         imprimirPreOrden(raiz.der)
 
 def imprimirPostOrden(raiz):
     if(raiz is not None):
-        print(raiz.info)
+        print(raiz.info.nombre)
         imprimirPostOrden(raiz.der)
         imprimirPostOrden(raiz.izq)
 

@@ -112,7 +112,7 @@ def generar_arbol(lista, arbol):
         num = random.randint(0, tamanio(lista)-1)
         alumno = index(lista, num)
         if not existe_alumno_en_arbol(arbol, alumno):
-            insertarNodo(arbol, alumno)
+            arbol = insertarNodo(arbol, alumno)
             contador += 1
     return arbol
 
@@ -154,6 +154,7 @@ if __name__ == "__main__":
         print("11: Tiempo de espera por nombre                  12: imprimir cola")
         print("13: Imprimir a todos                             14: Imprimir media del promedio")
         print("15: Generar arbol binario                        16: Buscar por nombre")
+        print("17: Imprimir pre orden")
         print("\n0: Salir")
 
         opcion = input()
@@ -179,7 +180,7 @@ if __name__ == "__main__":
                 print("Media de los promedios: ", media_promedios(lista))
                 print("-"*30)
             case "15" : arbol = generar_arbol(lista, arbol)
-            case "17" : imprimir(arbol)
+            case "17" : imprimirPreOrden(arbol)
             case _ : break
 
 
