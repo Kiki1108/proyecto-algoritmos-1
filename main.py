@@ -124,6 +124,7 @@ def espera_index():
             continue
 
 def nombre_busqueda():
+    print("Ingrese el nombre y apellido, con las mayúsculas y tildes correspondientes.")
     busqueda = input()
     return busqueda.strip()
 
