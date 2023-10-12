@@ -9,7 +9,7 @@ agregar notas random (hacer prueba)
 buscar por indice
 buscar por nombre /apellido
 
-ordenar por notas (baja a alta)
+[listo] ordenar por notas (baja a alta)
 ordenar por nombres alfabético
 
 
