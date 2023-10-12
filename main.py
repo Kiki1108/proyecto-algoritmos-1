@@ -117,7 +117,6 @@ def generar_arbol(lista, arbol):
     return arbol
 
 
-
 def espera_index():
     if not esVacia(cola):
         while True:
@@ -185,6 +184,7 @@ if __name__ == "__main__":
                 print("Media de los promedios: ", media_promedios(lista))
                 print("-"*30)
             case "15" : arbol = generar_arbol(lista, arbol)
+            case "16" : buscar_arbol_nombre(arbol)
             case "17" : imprimirPreOrden(arbol)
             case _ : break
 
