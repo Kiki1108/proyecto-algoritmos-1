@@ -127,10 +127,8 @@ def existe_alumno(lista, nombre):
     actual = lista.inicio
     for i in range(tamanio(lista)):
         if actual == None:
-            print("no existe")
             return False
         elif actual.alumno.nombre == nombre:
-            print("existe")
             return True
         actual = actual.siguiente
 
