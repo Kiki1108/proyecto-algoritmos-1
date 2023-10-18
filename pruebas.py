@@ -17,7 +17,7 @@ def generar_arbol(lista, arbol,numero_prueba):
 
 def generar_buscados(lista, numero_prueba):
     buscados = []
-    for _ in range(1000):
+    for _ in range(10):
         num = random.randint(0, numero_prueba)
         buscados.append(index(lista,num-1).nombre)
     return buscados
@@ -26,7 +26,7 @@ def generar_buscados(lista, numero_prueba):
 def main():
     # buscar 10 personas posibles y tomar el tiempo en cada una
     # repeir el tiempo
-    numero_prueba = 100000
+    numero_prueba = 3000
     lista = Lista()
     arbol = None
     time_lista = []
@@ -38,7 +38,7 @@ def main():
 
     arbol = generar_arbol(lista, arbol,numero_prueba)
 
-    for _ in range(1000):
+    for _ in range(10):
         buscados = generar_buscados(lista, numero_prueba)
 
         for i in buscados:

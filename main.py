@@ -95,6 +95,44 @@ def eliminar_nombre(lista):
     eliminar_alumno(lista=lista, nombre=nombre, indice=None)
 
 
+def eliminar_nota_indice_main(lista):
+    while True:
+        indice = input("Indice: ")
+        try:
+            indice = int(indice)
+            if indice >= 0 and indice < tamanio(lista):
+                break
+        except:
+            pass
+
+    while True:
+        nota = input("Nota a eliminar: ")
+        try:
+            nota = int(nota)
+            if nota >= 10 and nota <= 70:
+                break
+        except:
+            pass
+    eliminar_nota_indice(lista, indice, nota)
+
+
+def eliminar_nota_nombre_main(lista):
+    while True:
+        nombre = input("Nombre: ")
+        if existe_alumno(lista, nombre):
+            break
+    while True:
+        nota = input("Nota a eliminar: ")
+        try:
+            nota = int(nota)
+            if nota >= 10 and nota <= 70:
+                break
+        except:
+            pass
+    eliminar_nota_nombre(lista, nombre, nota)
+    
+
+
 def cola_prioridad(lista, cola):
     contador = 0
     while contador < 100:
@@ -153,7 +191,7 @@ if __name__ == "__main__":
         print("1: Insertar alumno                               2: Insertar nota a indice")
         print("3: Insertar nota a nombre                        4: Agregar nota a todos (nota random a todos")
         print("5: Eliminar alumno por indice                    6: Eliminar alumno por nombre")
-        print("7: Eliminar nota a indice                        8: Eliminar nota a nombre")
+        print("7: Eliminar nota por indice                      8: Eliminar nota por nombre")
         print("9: Formar la cola con prioridad                  10: Tiempo de espera por índice")
         print("11: Tiempo de espera por nombre                  12: imprimir cola")
         print("13: Imprimir a todos                             14: Imprimir media del promedio")
@@ -172,8 +210,8 @@ if __name__ == "__main__":
             case "4" : add_nota_random(lista)
             case "5" : eliminar_indice(lista)
             case "6" : eliminar_nombre(lista)
-            case "7" : eliminar_nota_indice(lista)
-            case "8" : eliminar_nota_nombre(lista)
+            case "7" : eliminar_nota_indice_main(lista)
+            case "8" : eliminar_nota_nombre_main(lista)
             case "9" : cola_prioridad(lista, cola)
             case "10" : atencion_index(cola, espera_index())
             case "11" : atencion_nombre(cola, nombre_busqueda())

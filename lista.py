@@ -160,3 +160,31 @@ def eliminar_alumno(lista, nombre, indice):
     print("-"*30)
 
 
+def eliminar_nota_indice(lista, indice, nota):
+    actual = lista.inicio
+    for _ in range(indice):
+        actual = actual.siguiente
+
+    print("-"*30)
+    print(actual.alumno.nombre)
+    print("Promedio anterior: ", actual.alumno.promedio)
+    actual.alumno.quitar_nota(nota)
+    print("Promedio actual: ", actual.alumno.promedio)
+    print("-"*30)
+
+
+def eliminar_nota_nombre(lista, nombre, nota):
+    actual = lista.inicio
+    for i in range(tamanio(lista)):
+        if actual.alumno.nombre == nombre:
+            break
+        actual = actual.siguiente
+
+    print("-"*30)
+    print(actual.alumno.nombre)
+    print("Promedio anterior: ", actual.alumno.promedio)
+    actual.alumno.quitar_nota(nota)
+    print("Promedio actual: ", actual.alumno.promedio)
+    print("-"*30)
+
+
