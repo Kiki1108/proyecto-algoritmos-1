@@ -197,7 +197,6 @@ def generar_pila(lista):
     for i in range(tamanio(lista)):
         alumno = index(lista, i)
         apilar_orden(pila, alumno)
-    imprimir_alumnos_pila(pila)
     return pila
 
 
@@ -211,45 +210,54 @@ if __name__ == "__main__":
         insertar(lista, alumno)
     
     while True:
-        print("1: Insertar alumno                               2: Insertar nota a indice")
-        print("3: Insertar nota a nombre                        4: Agregar nota a todos (nota random a todos")
-        print("5: Eliminar alumno por indice                    6: Eliminar alumno por nombre")
-        print("7: Eliminar nota por indice                      8: Eliminar nota por nombre")
-        print("9: Formar la cola con prioridad                  10: Tiempo de espera por índice")
-        print("11: Tiempo de espera por nombre                  12: imprimir cola")
-        print("13: Imprimir a todos                             14: Imprimir media del promedio")
-        print("15: Generar arbol binario                        16: Buscar por nombre")
-        print("17: Imprimir pre orden")
-        print("\n0: Salir")
+        print("""
+*Funciones de Lista:*                   *Funciones de Cola:*                        *Funciones de Arbol Binario:*
+1: Insertar Alumno                      11: Generar Colo con Prioridad              15: Generar Arbol Binario
+2: Insertar Nota por Indice             12: Imprimir Tiempo de espera por Índice    16: Buscar por Nombre
+3: Insertar Nota por Nombre             13: Imprimir Tiempo de espera por Nombre    17: Imprimir pre orden
+4: Agregar Nota a Todos (Tomar prueba)  14: Imprimir Cola                           
+5: Eliminar Alumno por Inidice                                                      *Funciones de Pila:*
+6: Eliminar Alumno por Nombre                                                       18: Generar Pila
+7: Eliminar Nota por Indice                                                         19: Imprimir Alumnos
+8: ELiminar Nota por Nombre                                                         20: Premiar a los mejores
+9: Imprimir a todos
+10: Imprimir Promedio Generar 
 
-        opcion = input()
+Cualquier otra entrada = salir""")
+
+        opcion = input("Entrada:")
 
         print("-"*30)
-
-        match opcion:
-            case "1" : insertar_alumno(lista)
-            case "2" : insert_nota_indice(lista)
-            case "3" : insert_nota_nombre(lista)
-            case "4" : add_nota_random(lista)
-            case "5" : eliminar_indice(lista)
-            case "6" : eliminar_nombre(lista)
-            case "7" : eliminar_nota_indice_main(lista)
-            case "8" : eliminar_nota_nombre_main(lista)
-            case "9" : cola_prioridad(lista, cola)
-            case "10" : atencion_index(cola, espera_index())
-            case "11" : atencion_nombre(cola, nombre_busqueda())
-            case "12" : imprimir(cola)
-            case "13" : imprimir_info(lista)
-            case "14" : 
-                print("-"*30)
-                print("Media de los promedios: ", media_promedios(lista))
-                print("-"*30)
-            case "15" : arbol = generar_arbol(lista, arbol)
-            case "16" : buscar_arbol_nombre(arbol)
-            case "17" : imprimirPreOrden(arbol)
-            case "18" : pila = generar_pila(lista)
-            case "19" : imprimir_alumnos_pila(pila)
-            case "20" : premiar(pila)
-            case _ : break
+        try:
+            match opcion:
+                case "1" : insertar_alumno(lista)
+                case "2" : insert_nota_indice(lista)
+                case "3" : insert_nota_nombre(lista)
+                case "4" : add_nota_random(lista)
+                case "5" : eliminar_indice(lista)
+                case "6" : eliminar_nombre(lista)
+                case "7" : eliminar_nota_indice_main(lista)
+                case "8" : eliminar_nota_nombre_main(lista)
+                case "9" : imprimir_info(lista)
+                case "10" : 
+                    print("-"*30)
+                    print("Media de los promedios: ", media_promedios(lista))
+                    print("-"*30)
+                case "11" : cola_prioridad(lista, cola)
+                case "12" : atencion_index(cola, espera_index())
+                case "13" : atencion_nombre(cola, nombre_busqueda())
+                case "14" : imprimir(cola)
+                case "15" : arbol = generar_arbol(lista, arbol)
+                case "16" : buscar_arbol_nombre(arbol)
+                case "17" : imprimirPreOrden(arbol)
+                case "18" : pila = generar_pila(lista)
+                case "19" : imprimir_alumnos_pila(pila)
+                case "20" : premiar(pila)
+                case _ : break
+        except:
+            print("!"*60)
+            print("Oh, Algo salió mal intente revisar sus pasos anteriores")
+            print("Presione enter para continuar")
+            input("!"*60)
 
 
