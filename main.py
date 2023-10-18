@@ -206,7 +206,18 @@ if __name__ == "__main__":
     arbol = None
 
     for i in range(1000):
-        alumno = crear_alumno()
+        match i:
+            case 0: alumno = Alumno("Miguel Oyarce", random.randint(10, 70))
+            case 1: alumno = Alumno("Alejandro Ide", random.randint(10, 70))            
+            case 2: alumno = Alumno("Amanda Pérez", random.randint(10, 70))
+            case 3: alumno = Alumno("Cristian Pavez", random.randint(10, 70))
+            case 4: alumno = Alumno("Felipe Mendez", random.randint(10, 70))
+            case 5: alumno = Alumno("Francisco Abdala", random.randint(10, 70))
+            case 6: alumno = Alumno("Gabriel Rojas", random.randint(10, 70))
+            case 7: alumno = Alumno("Matias Gajardo", random.randint(10, 70))
+            case 8: alumno = Alumno("Ricardo Macaya", random.randint(10, 70))
+            case 9: alumno = Alumno("Wladimir Fernández", random.randint(10, 70))
+            case _: alumno = crear_alumno()
         insertar(lista, alumno)
     
     while True:

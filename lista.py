@@ -42,8 +42,7 @@ def imprimir(lista):
 def imprimir_info(lista):
     actual = lista.inicio
     while actual is not None:
-        print(actual.alumno.nombre)
-        print(actual.alumno.promedio)
+        print(actual.alumno.nombre, actual.alumno.promedio)
         actual = actual.siguiente
 
 
