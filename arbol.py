@@ -99,6 +99,19 @@ def existe_alumno_en_arbol(raiz, alumno):
             existe = existe_alumno_en_arbol(raiz.der, alumno)
     return existe
 
+
+def buscar_alumno_en_arbol(raiz, nombre):
+    existe = False
+    if(raiz is not None):
+        if raiz.info.nombre == nombre:
+            return raiz.info
+        if not existe:
+            existe = buscar_alumno_en_arbol(raiz.izq, nombre)
+        if not existe:
+            existe = buscar_alumno_en_arbol(raiz.der, nombre)
+    return existe
+
+
 def prueba_busqueda_arbol(raiz, alumno):
     if(raiz is None):
         return None
@@ -108,3 +121,5 @@ def prueba_busqueda_arbol(raiz, alumno):
         return prueba_busqueda_arbol(raiz.izq,alumno)
     else:
         return prueba_busqueda_arbol(raiz.der,alumno)
+    
+

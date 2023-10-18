@@ -155,6 +155,19 @@ def generar_arbol(lista, arbol):
     return arbol
 
 
+def buscar_arbol_nombre(arbol):
+    while True:
+        nombre = input("Nombre: ")
+        if existe_alumno_en_arbol(arbol, Alumno(nombre, 0)):
+            break
+    alumno = buscar_alumno_en_arbol(arbol, nombre)
+    
+    print("-"*30)
+    print(alumno.nombre)
+    print("Promedio: ",alumno.promedio)
+    print("-"*30)
+
+
 def espera_index():
     if not esVacia(cola):
         while True:
