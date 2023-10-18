@@ -93,6 +93,8 @@ def return_index(lista, alumno):
 
 def index(lista, index):
     actual = lista.inicio
+    if index == 0:
+        return actual.alumno
 
     for i in range(index):
         if actual == None:

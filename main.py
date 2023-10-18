@@ -2,6 +2,7 @@ from lista import *
 from alumno import Alumno
 from cola import *
 from arbol import *
+from pila import *
 
 import random
 import json
@@ -191,6 +192,15 @@ def nombre_busqueda():
         print("La cola está vacía.")
 
 
+def generar_pila(lista):
+    pila = Pila()
+    for i in range(tamanio(lista)):
+        alumno = index(lista, i)
+        apilar_orden(pila, alumno)
+    imprimir_alumnos_pila(pila)
+    return pila
+
+
 if __name__ == "__main__":
     lista = Lista()
     cola = Cola()
@@ -237,6 +247,9 @@ if __name__ == "__main__":
             case "15" : arbol = generar_arbol(lista, arbol)
             case "16" : buscar_arbol_nombre(arbol)
             case "17" : imprimirPreOrden(arbol)
+            case "18" : pila = generar_pila(lista)
+            case "19" : imprimir_alumnos_pila(pila)
+            case "20" : premiar(pila)
             case _ : break
 
 
