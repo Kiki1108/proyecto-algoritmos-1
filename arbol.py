@@ -76,10 +76,10 @@ def imprimirInOrden(raiz):
 
 def imprimirPreOrden(raiz):
     if(raiz is not None):
-        print(raiz.info.nombre)
-        print(raiz.info.promedio)
         imprimirPreOrden(raiz.izq)
+        print(raiz.info.nombre, raiz.info.promedio)
         imprimirPreOrden(raiz.der)
+        
 
 def imprimirPostOrden(raiz):
     if(raiz is not None):
